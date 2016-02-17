@@ -13,11 +13,19 @@ app.use(express.static(__dirname + '/public'));
 
 // Routes \\
 app.get('/', function(req, res){
-  res.send('Hello')
+  res.send(' <form method="post" action="/formsubmit"><input name="email" type="email"><input type="submit"></form> ')
+});
+
+app.post('/formsubmit', function(req, res){
+	res.redirect('/success')
+});
+
+app.get('/success', function(req, res){
+	res.send('success and stuff')
 });
 
 // Creating Server and Listening for Connections \\
-var port = 3000
+var port = 3030
 app.listen(port, function(){
   console.log('Server running on port ' + port);
 
